@@ -80,6 +80,9 @@ app.get("/scrape", function(req, res) {
         arr.push(result);
       }
       //save articles in db
+      if(result.summary){
+        arr.push(result);
+      }
     });
     res.json(arr);
     // console.log(arr);
