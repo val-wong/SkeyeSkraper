@@ -72,11 +72,11 @@ app.get("/scrape", function(req, res) {
       var result = {};
 
       // Add the text and href of every link, and save them as properties of the result object
-      result.headline = $(this).children("a").text().trim();
-      result.summary = $(this).children("p").text().trim();
+      result.headline = $(this).children("h2").text();
+      result.summary = $(this).children("p.summary").text().trim();
       result.url = $(this).children("h2").children("a").attr("href");
       // result.link = $(this).children("a").attr("href");
-      if(result.headline){
+      if(result.headline && result.summary && result.url){
         arr.push(result);
       }
       //save articles in db
